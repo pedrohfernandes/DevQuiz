@@ -20,7 +20,7 @@ class _ChallengePageState extends State<ChallengePage> {
           child: QuestionIndicatorWidget(),
         ),
       ),
-      body: QuizWidget(title: "Título"),
+      body: QuizWidget(title: "O que o Flutter faz em sua totalidade?"),
     );
   }
 }

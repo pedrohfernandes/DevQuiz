@@ -9,40 +9,43 @@ class QuizWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
-        children: [
-          Text(
-            title,
-            style: AppTextStyles.heading,
-          ),
-          SizedBox(
-            height: 24,
-          ),
-          AnswerWidget(
-            isRight: true,
-            isSelected: true,
-            title:
-                "Testando um texto aleatório enquanto eu digito sem olhar pro teclado",
-          ),
-          AnswerWidget(
-            isRight: false,
-            isSelected: true,
-            title:
-                "Testando um texto aleatório enquanto eu digito sem olhar pro teclado",
-          ),
-          AnswerWidget(
-            title:
-                "Testando um texto aleatório enquanto eu digito sem olhar pro teclado",
-          ),
-          AnswerWidget(
-            title:
-                "Testando um texto aleatório enquanto eu digito sem olhar pro teclado",
-          ),
-          AnswerWidget(
-            title:
-                "Testando um texto aleatório enquanto eu digito sem olhar pro teclado",
-          ),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          children: [
+            Text(
+              title,
+              style: AppTextStyles.heading,
+            ),
+            SizedBox(
+              height: 24,
+            ),
+            AnswerWidget(
+              isRight: true,
+              isSelected: true,
+              title:
+                  "Testando um texto aleatório enquanto eu digito sem olhar pro teclado",
+            ),
+            AnswerWidget(
+              isRight: false,
+              isSelected: true,
+              title:
+                  "Testando um texto aleatório enquanto eu digito sem olhar pro teclado",
+            ),
+            AnswerWidget(
+              title:
+                  "Testando um texto aleatório enquanto eu digito sem olhar pro teclado",
+            ),
+            AnswerWidget(
+              title:
+                  "Testando um texto aleatório enquanto eu digito sem olhar pro teclado",
+            ),
+            AnswerWidget(
+              title:
+                  "Testando um texto aleatório enquanto eu digito sem olhar pro teclado",
+            ),
+          ],
+        ),
       ),
     );
   }

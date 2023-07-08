@@ -33,8 +33,9 @@ class AnswerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      padding: const EdgeInsets.symmetric(vertical: 4),
       child: Container(
+        height: 72,
         padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: isSelected ? _selectedColorCardRight : AppColors.white,
@@ -55,6 +56,9 @@ class AnswerWidget extends StatelessWidget {
                 style:
                     isSelected ? _selectedTextStyleRight : AppTextStyles.body,
               ),
+            ),
+            SizedBox(
+              width: 10,
             ),
             Container(
               width: 24,

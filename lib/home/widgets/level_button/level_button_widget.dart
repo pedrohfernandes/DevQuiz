@@ -38,6 +38,8 @@ class LevelButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 80,
+      height: 32,
       decoration: BoxDecoration(
         color: color,
         border: Border.fromBorderSide(
@@ -47,10 +49,10 @@ class LevelButtonWidget extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(28),
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 6),
+      child: Center(
         child: Text(
           label,
+          textAlign: TextAlign.center,
           style: GoogleFonts.notoSans(
             color: fontColor,
             fontSize: 13,
