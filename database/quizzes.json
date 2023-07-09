@@ -1,7 +1,7 @@
 [
     {
         "title": "NLW 5 - Projeto DevQuiz",
-        "image": "blocks",
+        "image": "assets/images/blocks.png",
         "questionAnswered": 2,
         "level": "facil",
         "questions": [

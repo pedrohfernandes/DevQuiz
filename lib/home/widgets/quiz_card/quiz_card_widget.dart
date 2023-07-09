@@ -4,14 +4,16 @@ import 'package:flutter/material.dart';
 
 class QuizCardWidget extends StatelessWidget {
   final String title;
-  final String completed;
-  final double percent;
+  final String image;
+  final int questionAnswered;
+  final int questionsLength;
 
   const QuizCardWidget({
     Key? key,
     required this.title,
-    required this.completed,
-    required this.percent,
+    required this.image,
+    required this.questionAnswered,
+    required this.questionsLength,
   }) : super(key: key);
 
   @override
@@ -30,7 +32,7 @@ class QuizCardWidget extends StatelessWidget {
           Container(
             height: 40,
             width: 40,
-            child: Image.asset(AppImages.blocks),
+            child: Image.asset(image),
           ),
           Text(
             title,
@@ -42,14 +44,14 @@ class QuizCardWidget extends StatelessWidget {
               Expanded(
                 flex: 2,
                 child: Text(
-                  completed,
+                  "$questionAnswered de $questionsLength",
                   style: AppTextStyles.body11,
                 ),
               ),
               Expanded(
                 flex: 3,
                 child: ProgressIndicatorWidget(
-                  value: percent,
+                  value: questionAnswered / questionsLength,
                 ),
               ),
             ],
