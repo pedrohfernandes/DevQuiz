@@ -29,6 +29,7 @@ class _QuizWidgetState extends State<QuizWidget> {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               widget.question.title,

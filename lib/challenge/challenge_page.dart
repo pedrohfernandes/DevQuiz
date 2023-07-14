@@ -2,6 +2,7 @@ import 'package:devquiz/challenge/challenge_controller.dart';
 import 'package:devquiz/challenge/widgets/next_button/next_button_widget.dart';
 import 'package:devquiz/challenge/widgets/question_indicator/question_indicator_widget.dart';
 import 'package:devquiz/challenge/widgets/quiz/quiz_widget.dart';
+import 'package:devquiz/core/core.dart';
 import 'package:devquiz/result/result_page.dart';
 import 'package:devquiz/shared/models/question_model.dart';
 import 'package:flutter/material.dart';
@@ -51,26 +52,38 @@ class _ChallengePageState extends State<ChallengePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100),
+        preferredSize: Size.fromHeight(150),
         child: SafeArea(
           top: true,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              IconButton(
-                icon: Icon(Icons.close),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ValueListenableBuilder(
-                valueListenable: controller.currentPageNotifier,
-                builder: (context, value, _) => QuestionIndicatorWidget(
-                  currentPage: value,
-                  length: widget.questions.length,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TextButton.icon(
+                  style: ButtonStyle(
+                    iconColor: MaterialStateProperty.all(AppColors.grey),
+                    overlayColor: MaterialStateProperty.all(Colors.transparent),
+                    padding: MaterialStateProperty.all(EdgeInsets.zero),
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(Icons.keyboard_arrow_left),
+                  label: Text(
+                    "Voltar ao início",
+                    style: TextStyle(color: AppColors.grey),
+                  ),
                 ),
-              ),
-            ],
+                ValueListenableBuilder(
+                  valueListenable: controller.currentPageNotifier,
+                  builder: (context, value, _) => QuestionIndicatorWidget(
+                    currentPage: value,
+                    length: widget.questions.length,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -13,31 +13,28 @@ class QuestionIndicatorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Questão $currentPage",
-                  style: AppTextStyles.body,
-                ),
-                Text(
-                  "de $length",
-                  style: AppTextStyles.body,
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 16,
-            ),
-            ProgressIndicatorWidget(
-              value: currentPage / length,
-            ),
-          ],
-        ),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Questão $currentPage",
+                style: AppTextStyles.body,
+              ),
+              Text(
+                "de $length",
+                style: AppTextStyles.body,
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          ProgressIndicatorWidget(
+            value: currentPage / length,
+          ),
+        ],
       ),
     );
   }

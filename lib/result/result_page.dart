@@ -23,70 +23,84 @@ class ResultPage extends StatelessWidget {
         width: double.maxFinite,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 68),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Image.asset(AppImages.trophy),
-              SizedBox(
-                height: 24,
-              ),
-              Text(
-                "Parabéns!",
-                style: AppTextStyles.heading40,
-              ),
-              SizedBox(
-                height: 16,
-              ),
-              Text.rich(
-                TextSpan(
-                  text: "Você concluiu",
-                  style: AppTextStyles.body,
+          child: SafeArea(
+            top: true,
+            bottom: true,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    TextSpan(
-                      text: "\n$quizTitle",
-                      style: AppTextStyles.bodyBold,
+                    Image.asset(AppImages.trophy),
+                    SizedBox(
+                      height: 30,
                     ),
-                    TextSpan(
-                      text: "\ncom $quizRightAnswers de $quizLength acertos",
-                      style: AppTextStyles.body,
+                    Text(
+                      "Parabéns!",
+                      style: AppTextStyles.heading40,
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text.rich(
+                      TextSpan(
+                        text: "Você concluiu",
+                        style: AppTextStyles.body,
+                        children: [
+                          TextSpan(
+                            text: "\n$quizTitle",
+                            style: AppTextStyles.bodyBold,
+                          ),
+                          TextSpan(
+                            text:
+                                "\ncom $quizRightAnswers de $quizLength acertos",
+                            style: AppTextStyles.body,
+                          ),
+                        ],
+                      ),
+                      textAlign: TextAlign.center,
                     ),
                   ],
                 ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: 24,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: NextButtonWidget.share(
-                      label: "Compartilhar",
-                      onTap: () {
-                        Share.share(
-                            "DevQuiz: Obtive ${quizRightAnswers / quizLength}% de aproveitamento no quiz '$quizTitle'");
-                      },
+                Column(
+                  children: [
+                    SizedBox(
+                      height: 24,
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 24,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: NextButtonWidget.transparent(
-                      label: "Voltar ao início",
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
+                    Row(
+                      children: [
+                        Expanded(
+                          child: NextButtonWidget.share(
+                            label: "Compartilhar",
+                            onTap: () {
+                              Share.share(
+                                  "DevQuiz: Obtive ${((quizRightAnswers * 100) / quizLength).toStringAsPrecision(3)}% de aproveitamento no quiz '$quizTitle'");
+                            },
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
-              ),
-            ],
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: NextButtonWidget.transparent(
+                            label: "Voltar ao início",
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

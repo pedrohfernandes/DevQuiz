@@ -1,4 +1,5 @@
 import 'package:devquiz/challenge/challenge_page.dart';
+import 'package:devquiz/core/core.dart';
 import 'package:devquiz/home/home_controller.dart';
 import 'package:devquiz/home/home_state.dart';
 import 'package:devquiz/home/widgets/appbar/app_bar_widget.dart';
@@ -59,6 +60,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Expanded(
                 child: GridView.count(
+                  padding: EdgeInsets.only(bottom: 20),
                   crossAxisSpacing: 16,
                   mainAxisSpacing: 16,
                   crossAxisCount: 2,
@@ -91,8 +93,13 @@ class _HomePageState extends State<HomePage> {
       );
     } else {
       return Scaffold(
-        body: Center(
-          child: CircularProgressIndicator(),
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: AppGradients.linear,
+          ),
+          child: Center(
+            child: CircularProgressIndicator(),
+          ),
         ),
       );
     }
